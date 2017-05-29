@@ -19,7 +19,7 @@ from .ledgeraccounts import LedgerAccounts
 from .receivables import Receivables
 from .relations import Relations
 from .vatcodes import VatCodes
-
+from .journals import Journals
 
 class ExactApi(
     # Talk to /api/v1/{division} directly.
@@ -39,3 +39,4 @@ class ExactApi(
     receivables = Receivables.as_property()
     relations = Relations.as_property()
     vatcodes = VatCodes.as_property()
+    journals = Journals.as_property()
