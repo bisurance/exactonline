@@ -20,6 +20,7 @@ from .receivables import Receivables
 from .relations import Relations
 from .vatcodes import VatCodes
 from .journalentries import GeneralJournalEntries
+from .journals import Journals
 
 class ExactApi(
     # Talk to /api/v1/{division} directly.
@@ -40,3 +41,4 @@ class ExactApi(
     relations = Relations.as_property()
     vatcodes = VatCodes.as_property()
     journalentries = GeneralJournalEntries.as_property()
+    journals = Journals.as_property()
