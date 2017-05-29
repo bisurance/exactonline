@@ -5,5 +5,5 @@ from ..resource import GET
 class GeneralJournalEntries(Manager):
 	resource = 'generaljournalentry/GeneralJournalEntries'
 
-	def all():
+	def all(self):
 		return self.filter(select='Created')
