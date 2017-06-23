@@ -6,8 +6,8 @@ class GeneralJournalEntries(Manager):
 	resource = 'generaljournalentry/GeneralJournalEntries'
 
 	def filter(self, **kwargs):
-		ret = super(GeneralJournalEntries, self).filter(self, **kwargs)
-		if 'GeneralJournalEntryLines' in ret:
-			url = ret['GeneralJournalEntryLines']['__deferred']['url']
-			ret['GeneralJournalEntryLines']['x'] = self._api._rest_query(url)
+		ret = Manager.filter(self, **kwargs)  #super(GeneralJournalEntries, self).filter(**kwargs)
+		uri = ret['GeneralJournalEntryLines']['__deferred']['uri']
+		lines = self._api.restv1(GET(str(uri)))
+		ret['GeneralJournalEntryLines']['x'] = lines
 		return ret
